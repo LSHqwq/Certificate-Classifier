@@ -1,0 +1,70 @@
+# 图像识别分类器安装说明
+
+## 首次安装步骤
+
+### 第一步：安装 Tesseract OCR（必需）
+
+1. **下载 Tesseract OCR**：
+   - 访问 GitHub 下载页面：https://github.com/tesseract-ocr/tesseract/releases
+   - 下载 `tesseract-ocr-w64-setup-5.4.0.20240606.exe`（或最新版本）
+
+2. **安装 Tesseract OCR**：
+   - 运行下载的安装程序
+   - **重要**：在安装过程中，勾选 "Additional language data" → 选择 "Chinese Simplified"（简体中文）
+   - 完成安装
+
+3. **验证安装**：
+   - 按 `Win + R`，输入 `cmd`，回车
+   - 输入 `tesseract --version`，如果显示版本号则安装成功
+
+### 第二步：运行安装程序
+
+1. 双击运行 `安装程序.bat`
+2. 程序会自动：
+   - 创建安装目录
+   - 复制程序文件到 `C:\Users\[用户名]\AppData\Local\图像识别分类器`
+   - 在桌面创建"开始分类"快捷方式
+
+### 第三步：启动程序
+
+- 双击桌面上的"开始分类"快捷方式
+- 或者进入安装目录，双击 `图像识别分类器.exe`
+
+## 目录结构
+
+```
+package/
+├── 安装程序.bat          # 自动安装脚本
+├── app/                  # 放置 图像识别分类器.exe
+│   └── 图像识别分类器.exe
+└── tesseract/           # Tesseract OCR（需单独下载安装）
+```
+
+## 系统要求
+
+- Windows 10/11 操作系统
+- Tesseract OCR 5.x（需安装中文语言包）
+- 至少 500MB 可用磁盘空间
+
+## 故障排除
+
+### 问题：提示 "tesseract 不是内部或外部命令"
+**解决方法**：
+1. 确认 Tesseract 已正确安装
+2. 将 Tesseract 安装路径添加到系统 PATH：
+   - 右键"此电脑" → 属性 → 高级系统设置 → 环境变量
+   - 在系统变量中找到 Path，点击编辑
+   - 添加 `C:\Program Files\Tesseract-OCR`（根据实际安装路径）
+   - 重启电脑后生效
+
+### 问题：图片文字识别不准确
+**解决方法**：
+1. 确保图片清晰度足够
+2. 确认 Tesseract 安装时选择了中文语言包
+3. 尝试使用更高质量的图片格式（PNG > JPG > BMP）
+
+## 卸载方法
+
+1. 删除桌面快捷方式"开始分类"
+2. 删除安装目录 `C:\Users\[用户名]\AppData\Local\图像识别分类器`
+3. 如需完全卸载，可通过 Windows 设置中的"应用和功能"卸载 Tesseract OCR

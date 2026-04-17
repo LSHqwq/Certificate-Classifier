@@ -12,206 +12,434 @@
         }
         
         body {
-            font-family: 'Microsoft YaHei', Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            line-height: 1.8;
             color: #333;
-            background-color: #f5f5f5;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             color: white;
-            padding: 60px 0;
+            padding: 80px 20px;
             text-align: center;
-            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
         }
         
         h1 {
-            font-size: 2.5em;
+            font-size: 3.5em;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .subtitle {
-            font-size: 1.2em;
+            font-size: 1.4em;
             opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.95em;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .download-section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-top: -50px;
+            position: relative;
+        }
+        
+        .download-title {
+            font-size: 2em;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+        }
+        
+        .download-desc {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
         }
         
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-bottom: 40px;
+            margin: 50px 0;
         }
         
         .feature-card {
             background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
         }
         
         .feature-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
         }
         
-        .feature-card h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-        
-        .download-section {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .download-btn {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.1em;
-            font-weight: bold;
-            transition: background 0.3s ease;
-            margin: 10px;
-        }
-        
-        .download-btn:hover {
-            background: #764ba2;
-        }
-        
-        .usage {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 40px;
-        }
-        
-        .usage h2 {
-            color: #667eea;
+        .feature-icon {
+            font-size: 3em;
             margin-bottom: 20px;
         }
         
-        .usage-steps {
-            list-style: none;
-        }
-        
-        .usage-steps li {
+        .feature-card h3 {
+            color: #1a1a2e;
+            font-size: 1.4em;
             margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
         }
         
-        .usage-steps li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #667eea;
+        .feature-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        .formats-section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .formats-title {
+            font-size: 2em;
+            color: #1a1a2e;
+            margin-bottom: 30px;
+        }
+        
+        .formats-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .format-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 35px;
+            border-radius: 10px;
             font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .usage-section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            margin: 30px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .usage-title {
+            font-size: 2em;
+            color: #1a1a2e;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content strong {
+            color: #1a1a2e;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .step-content p {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .notice-section {
+            background: #fff3cd;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 5px solid #ffc107;
+        }
+        
+        .notice-title {
+            color: #856404;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .notice-content {
+            color: #856404;
+        }
+        
+        .notice-content ol {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .notice-content li {
+            margin-bottom: 8px;
         }
         
         footer {
             text-align: center;
-            padding: 30px 0;
-            background: #333;
+            padding: 40px 20px;
             color: white;
-            margin-top: 60px;
+            opacity: 0.9;
         }
         
-        .support-formats {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 40px;
+        .github-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
         }
         
-        .formats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+        .github-link:hover {
+            text-decoration: underline;
         }
         
-        .format-item {
-            background: #f0f0f0;
-            padding: 15px;
-            border-radius: 5px;
-            text-align: center;
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .subtitle {
+                font-size: 1.1em;
+            }
+            
+            .download-section,
+            .formats-section,
+            .usage-section {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>图像识别分类器</h1>
-            <p class="subtitle">智能奖状分类工具，支持多种文件格式</p>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>🖼️ 图像识别分类器</h1>
+            <p class="subtitle">智能奖状分类工具 - 让分类变得简单高效</p>
+            <div class="badge-container">
+                <span class="badge">🎯 智能识别</span>
+                <span class="badge">📁 多格式支持</span>
+                <span class="badge">🔍 模糊匹配</span>
+                <span class="badge">⚡ 批量处理</span>
+            </div>
         </div>
     </header>
     
     <div class="container">
+        <section class="download-section">
+            <h2 class="download-title">🚀 立即下载</h2>
+            <p class="download-desc">点击下方按钮下载最新版本的图像识别分类器<br><small>支持 Windows 10/11 系统</small></p>
+            <a href="https://github.com/LSHqwq/Certificate-Classifier/raw/main/图像识别分类器.zip" class="download-btn">📥 下载安装包</a>
+        </section>
+        
         <section class="features">
             <div class="feature-card">
-                <h3>多种文件格式支持</h3>
-                <p>支持PDF、JPG、PNG、BMP、TIFF等多种常见文件格式，满足各种奖状文档的分类需求。</p>
+                <div class="feature-icon">📄</div>
+                <h3>多种文件格式</h3>
+                <p>支持 PDF、JPG、PNG、BMP、TIFF 等多种常见文件格式，满足各种奖状文档的分类需求。</p>
             </div>
             <div class="feature-card">
+                <div class="feature-icon">🔍</div>
                 <h3>智能文本识别</h3>
-                <p>利用OCR技术自动识别图像中的文本内容，提取姓名、年份、奖项类型等关键信息。</p>
+                <p>利用 OCR 光学字符识别技术，自动从图像中提取文字内容，准确识别姓名、年份、奖项等关键信息。</p>
             </div>
             <div class="feature-card">
+                <div class="feature-icon">🧠</div>
                 <h3>智能分类条件</h3>
-                <p>支持按姓名、年份、奖项类型、颁发机构、奖项级别等多种条件进行分类，模糊输入也能理解。</p>
+                <p>支持按姓名、年份、奖项类型、颁发机构、奖项级别等多种条件分类，模糊输入也能准确理解您的意图。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>批量高效处理</h3>
+                <p>一键批量分类处理，快速将大量奖状文件按照指定条件自动分类到相应文件夹，提高工作效率。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>美观简洁界面</h3>
+                <p>现代化设计风格，简洁直观的操作界面，无需复杂设置，开箱即用。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📦</div>
+                <h3>易于分发部署</h3>
+                <p>独立可执行文件，无需安装 Python 环境，下载后即可在 Windows 系统上运行。</p>
             </div>
         </section>
         
-        <section class="support-formats">
-            <h2>支持的文件格式</h2>
+        <section class="formats-section">
+            <h2 class="formats-title">📋 支持的文件格式</h2>
             <div class="formats-grid">
                 <div class="format-item">PDF</div>
                 <div class="format-item">JPG</div>
                 <div class="format-item">PNG</div>
                 <div class="format-item">BMP</div>
                 <div class="format-item">TIFF</div>
+                <div class="format-item">JPEG</div>
             </div>
         </section>
         
-        <section class="download-section">
-            <h2>立即下载</h2>
-            <p>点击下方按钮下载最新版本的图像识别分类器</p>
-            <a href="https://github.com/LSHqwq/Certificate-Classifier/raw/main/图像识别分类器.zip" class="download-btn">下载Windows版</a>
-            <a href="https://github.com/LSHqwq/Certificate-Classifier" class="download-btn">查看源码</a>
+        <section class="usage-section">
+            <h2 class="usage-title">📖 快速开始</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>下载并解压</strong>
+                        <p>下载图像识别分类器.zip文件并解压到任意位置</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>运行安装程序</strong>
+                        <p>双击"安装程序.bat"进行初始化配置</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>选择文件夹</strong>
+                        <p>点击"浏览"按钮选择包含奖状的源文件夹</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <strong>设置分类条件</strong>
+                        <p>输入分类条件，如"姓名"、"年份"、"省级"等</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <strong>开始分类</strong>
+                        <p>点击"开始分类"按钮，软件将自动完成分类</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <strong>查看结果</strong>
+                        <p>在目标文件夹中查看分类好的奖状文件</p>
+                    </div>
+                </div>
+            </div>
         </section>
         
-        <section class="usage">
-            <h2>使用方法</h2>
-            <ol class="usage-steps">
-                <li>下载并解压 <strong>图像识别分类器.zip</strong> 文件</li>
-                <li>双击 <strong>图像识别分类器.exe</strong> 运行程序</li>
-                <li>点击"浏览"按钮选择包含奖状的源文件夹</li>
-                <li>点击"浏览"按钮选择分类后保存的目标文件夹</li>
-                <li>在"分类条件"输入框中输入分类方式（如"姓名"、"年份"、"省级"等）</li>
-                <li>点击"开始分类"按钮开始自动分类</li>
-                <li>分类完成后，奖状会按指定条件自动分类到相应的文件夹中</li>
-            </ol>
+        <section class="notice-section">
+            <h3 class="notice-title">⚠️ 重要提示：首次使用需安装 Tesseract OCR</h3>
+            <div class="notice-content">
+                <p>由于软件使用 OCR 技术识别图片文字，<strong>首次使用需要安装 Tesseract OCR 引擎</strong>：</p>
+                <ol>
+                    <li>访问 GitHub 下载页面：<a href="https://github.com/tesseract-ocr/tesseract/releases" target="_blank">点击访问</a></li>
+                    <li>下载 <code>tesseract-ocr-w64-setup-5.4.0.20240606.exe</code>（或最新版本）</li>
+                    <li>运行安装程序，<strong>务必勾选安装中文语言包（Chinese Simplified）</strong></li>
+                    <li>安装完成后，按照安装程序的提示创建桌面快捷方式</li>
+                </ol>
+                <p>详细安装说明请查看压缩包内的 <code>安装说明.txt</code> 文件</p>
+            </div>
         </section>
     </div>
     
     <footer>
         <p>&copy; 2026 图像识别分类器 - 智能奖状分类工具</p>
+        <p style="margin-top: 10px;">
+            <a href="https://github.com/LSHqwq/Certificate-Classifier" class="github-link">📂 查看源码</a>
+        </p>
     </footer>
 </body>
 </html>
